@@ -4,52 +4,113 @@
 <meta charset="UTF-8">
 <title>For Samaira ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
 body{
 margin:0;
 height:100vh;
-background:linear-gradient(135deg,#ff4d6d,#ff8fa3);
+font-family:'Poppins',sans-serif;
+background:radial-gradient(circle at top,#ff9a9e,#ff4d6d);
 overflow:hidden;
-font-family:Arial,sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
-text-align:center;
+color:white;
 }
-.container{color:white;z-index:2;}
-h1{font-size:2.2em;}
+
+.container{
+text-align:center;
+animation:fadeIn 2s ease;
+z-index:2;
+}
+
+h1{
+font-size:2.8em;
+font-weight:800;
+text-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+p{
+font-size:1.2em;
+opacity:0.9;
+}
+
 button{
-margin:10px;
-padding:14px 35px;
+padding:15px 45px;
 font-size:1.1em;
 border:none;
-border-radius:40px;
+border-radius:50px;
 cursor:pointer;
+margin:10px;
+font-weight:600;
 }
-#yes{background:white;color:#ff4d6d;}
-#no{background:#ffd6dc;color:#ff4d6d;position:absolute;}
+
+#yes{
+background:white;
+color:#ff4d6d;
+box-shadow:0 0 25px rgba(255,255,255,0.9);
+}
+
+#no{
+background:rgba(255,255,255,0.3);
+color:white;
+position:absolute;
+}
+
 .heart{
 position:absolute;
 font-size:20px;
 animation:float 6s linear infinite;
+opacity:0.8;
 }
+
 @keyframes float{
-0%{transform:translateY(100vh);opacity:1;}
-100%{transform:translateY(-10vh);opacity:0;}
+0%{transform:translateY(100vh) scale(0.5);opacity:1}
+100%{transform:translateY(-10vh) scale(1.2);opacity:0}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:scale(0.9)}
+to{opacity:1;transform:scale(1)}
+}
+
+#love{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#ff4d6d,#ff9a9e);
+display:none;
+justify-content:center;
+align-items:center;
+text-align:center;
+z-index:10;
 }
 </style>
 </head>
+
 <body onclick="playMusic()">
 
 <audio id="music" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
 </audio>
 
 <div class="container">
 <h1>Samaira ❤️</h1>
+<p>I have one important question…</p>
 <h1>Will you be my Valentine? 💘</h1>
-<button id="yes" onclick="alert('Yayyy ❤️🥰 Sehaj is smiling 😏🔥')">YES 😍</button>
+
+<button id="yes" onclick="yes()">YES 😍</button>
 <button id="no" onmouseover="moveNo()">NO 😒</button>
+</div>
+
+<div id="love">
+<div>
+<h1>Yayyy 🥰❤️</h1>
+<p>Sehaj is smiling because of you 😌🔥</p>
+</div>
 </div>
 
 <script>
@@ -58,17 +119,22 @@ let h=document.createElement("div");
 h.className="heart";
 h.innerHTML="❤️";
 h.style.left=Math.random()*100+"vw";
-h.style.fontSize=(15+Math.random()*20)+"px";
+h.style.fontSize=(16+Math.random()*25)+"px";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),6000);
 }
-setInterval(heart,300);
+setInterval(heart,250);
 
 function moveNo(){
 let n=document.getElementById("no");
 n.style.left=Math.random()*80+"vw";
 n.style.top=Math.random()*80+"vh";
 }
+
+function yes(){
+document.getElementById("love").style.display="flex";
+}
+
 function playMusic(){
 document.getElementById("music").play();
 }
