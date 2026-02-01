@@ -127,30 +127,43 @@ z-index:10;
 
 <script>
 function heart(){
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-h.style.left=Math.random()*100+"vw";
-h.style.fontSize=(16+Math.random()*25)+"px";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),6000);
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random()*100 + "vw";
+  h.style.fontSize = (16 + Math.random()*25) + "px";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 6000);
 }
-setInterval(heart,250);
+setInterval(heart, 250);
 
+// first NO button
 function moveNo(){
-let n=document.getElementById("no");
-n.style.left=Math.random()*80+"vw";
-n.style.top=Math.random()*80+"vh";
+  let n = document.getElementById("no");
+  n.style.left = Math.random()*80 + "vw";
+  n.style.top = Math.random()*80 + "vh";
 }
 
+// first YES button
 function yes(){
-document.getElementById("love").style.display="flex";
+  document.getElementById("love").style.display = "flex";
 }
 
+// music
 function playMusic(){
-document.getElementById("music").play();
+  document.getElementById("music").play();
+}
+
+// FINAL PAGE YES
+function finalYes(){
+  document.getElementById("kissText").style.display = "block";
+}
+
+// FINAL PAGE NO (runs away)
+function moveFinalNo(){
+  let n = document.getElementById("finalNo");
+  n.style.position = "absolute";
+  n.style.left = Math.random()*80 + "vw";
+  n.style.top = Math.random()*80 + "vh";
 }
 </script>
-
-</body>
-</html>
